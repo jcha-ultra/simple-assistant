@@ -1,7 +1,7 @@
 """Core module for the simple assistant."""
 
 from pathlib import Path
-from typing import Optional, Sequence
+from typing import Optional
 
 from yaml import safe_load
 
