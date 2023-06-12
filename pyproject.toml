@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "simple-assistant"
+version = "0.1.0"
+description = "A simple assistant without many features or dependencies."
+authors = ["jcha-ultra <15233508+jcha-ultra@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "simple_assistant"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+PyYAML = "^6.0"
+openai = "^0.27.8"
+
+[tool.poetry.group.dev.dependencies]
+pylint = "^2.17.4"
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
