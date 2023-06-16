@@ -1,0 +1,11 @@
+assistant_name: mordin
+prompt: mordin
+model_api: openai_chat
+model_name: gpt-4
+model_args:
+  temperature: 0
+knowledge: default
+memory: default
+conversation_dir: ./conversations
+environment_variables:
+  - .env
