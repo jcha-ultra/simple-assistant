@@ -1,11 +1,11 @@
-assistant_name: assistant
-prompt: default
-model_api: openai_chat
-model_name: gpt-3.5-turbo
-model_args:
+assistant_name: assistant # name of assistant used in conversation files
+prompt: default # name of prompt to use in `prompts` directory
+model_api: openai_chat # name of the model API module to use in `model_apis` directory
+model_name: gpt-3.5-turbo # what model to use within the model API; this will be passed to the model_api module
+model_args: # other arguments to pass to the model API 
   temperature: 0
-knowledge: default
-memory: default
-conversation_dir: ./conversations
-environment_variables:
+knowledge: default # name of the knowledge module to use in `knowledge` directory
+memory: default # name of the memory module to use in `memory` directory
+conversation_dir: ./conversations # directory where conversation files are stored
+environment_variables: # list of environment files to
   - .env
