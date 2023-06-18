@@ -1,3 +1,6 @@
+"""Implementation for chat models from OpenAI."""
+
+import os
 from typing import Any, Dict
 import openai
 from simple_assistant.types import Message, MessageSequence
@@ -19,18 +22,26 @@ def get_max_tokens(model_name: str) -> int:
     return max_tokens
 
 
-def run(messages: MessageSequence, model_name: str, model_settings: Dict[str, Any]) -> str:
+def run(
+    messages: MessageSequence,
+    model_name: str,
+    model_args: Dict[str, Any],
+    environment: Dict[str, Any],
+) -> str:
     """Run the chat models from OpenAI."""
 
     def process_message(message: Message) -> Dict[str, Any]:
         """Convert a message into format for OpenAI API."""
         return {"role": message.type, "content": message.content}
 
+    environment = {**os.environ, **environment}
+
     processed_messages = [process_message(message) for message in messages]
     response = openai.ChatCompletion.create(
         model=model_name,
         messages=processed_messages,
-        **model_settings,
+        **model_args,
+        api_key=environment["OPENAI_API_KEY"]
         # model=model_name, messages=[{"role": "user", "content": "Hello!"}], **settings
     )
     return response.choices[0]["message"]["content"]
