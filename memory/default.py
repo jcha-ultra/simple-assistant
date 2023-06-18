@@ -1,3 +1,6 @@
+"""Default memory module."""
+
+
 from typing import Optional
 
 from simple_assistant.types import MessageSequence
