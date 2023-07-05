@@ -83,7 +83,7 @@ def run_assistant(
     conversation_history = [
         *conversation_history,
         Message("user", user_input),
-        Message("assistant", response),
+        Message("assistant", response.replace(" \n", "\n")),
     ]
 
     def map_to_assistant_name(message_type: MessageType) -> str:
